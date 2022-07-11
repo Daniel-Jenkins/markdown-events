@@ -14,7 +14,7 @@ For editing the Markdown files, the vim keybinding:
 
 ``` vim.keymap.set('n', '<Leader>id', 'A KEYWORD:<ESC>:put =strftime(\'%Y-%m-%d %H:%M\')<CR>kJx$') ```
 
-    or
+or
 
 ``` nnoremap <Leader>id A KEYWORD:<ESC>:put =strftime(\'%Y-%m-%d %H:%M\')<CR>kJx$ ```
 
