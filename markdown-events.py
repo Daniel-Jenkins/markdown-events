@@ -101,8 +101,8 @@ if __name__ == '__main__':
                         help='Select mode for event selection.')
     args = parser.parse_args()
 
-    file_path = path.expanduser('~/vimwiki/*.md')
-    inbox_path = path.expanduser('~/vimwiki/inbox.md')
+    file_path = path.expanduser('~/vimwiki/gtd/*.md')
+    inbox_path = path.expanduser('~/vimwiki/gtd/inbox.md')
 
     if args.mode == 's':
         sort_and_print('SCHEDULED:', file_path)
