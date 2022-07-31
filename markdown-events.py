@@ -59,7 +59,7 @@ def print_events(events, search_str, now):
         event = event.split(search_str)
         if event[1] > now:
             padder = '-'
-        elif event[1][:10] == now:
+        elif event[1] == now:
             padder = '~'
         else:
             padder = '!'
@@ -73,10 +73,8 @@ def sort_and_print(search_str, file_path):
     print_events(events, search_str, now)
 
 
-def add_to_inbox(input, inbox_path):
-    input_str = ''
-    for input_word in input:
-        input_str += input_word + ' '
+def add_to_inbox(inbox_path):
+    input_str = input('Enter input:')
 
     with open(inbox_path, 'a') as inbox:
         inbox.write('- [ ] ')
@@ -97,8 +95,6 @@ def print_number_in_inbox(inbox_path):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('mode', help='Select mode for event selection.')
-    parser.add_argument('--in', dest='input', type=str, nargs='*',
-                        help='Select mode for event selection.')
     args = parser.parse_args()
 
     file_path = path.expanduser('~/vimwiki/gtd/*.md')
@@ -109,8 +105,7 @@ if __name__ == '__main__':
     elif args.mode == 'd':
         sort_and_print('DEADLINE:', file_path)
     elif args.mode == 'i':
-        assert(len(args.input) > 0)
-        add_to_inbox(args.input, inbox_path)
+        add_to_inbox(inbox_path)
     elif args.mode == 'c':
         print_number_in_inbox(inbox_path)
     else:
